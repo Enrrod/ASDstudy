@@ -62,6 +62,7 @@ def eigen_aisle(PHY_ses):
 
 
 def fit_function(individual, phy_mean):
+    sleep(0.001)
     degmat = degmatrix(individual)
     lmat = Lmatrix(individual, degmat)
     (phys, landas) = eigen(lmat)
@@ -125,7 +126,7 @@ toolbox.register('mutate', matMutFloat, rowindpb=0.1, elemindpb=0.1,
                  mask=obtainMask(
                      '/home/enrique/Proyectos/ASDstudy/Data/ASDsubjects/DTI/Wmatrices/ASD38D_DTI_connectivity_matrix_file.txt'))
 toolbox.register('select', tools.selTournament, tournsize=3)
-#toolbox.register("map", futures.map)
+toolbox.register("map", futures.map)
 
 
 def main():
